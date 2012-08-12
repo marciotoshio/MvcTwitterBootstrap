@@ -58,9 +58,9 @@ if (!String.IsNullOrEmpty(mvcHost.MasterPageFile)) {
 }
 #>
 <p>
-    @Html.ActionLink("Create New", "Create")
+		<a href="@Url.Action("Create")" class="btn btn-primary"><i class="icon-file icon-white"></i> Create new</a>
 </p>
-<table>
+<table class="table table-striped table-bordered table-condensed">
     <tr>
 <#
 List<ModelProperty> properties = GetModelProperties(mvcHost.ViewDataType);
@@ -94,17 +94,17 @@ string pkName = GetPrimaryKeyName(mvcHost.ViewDataType);
 if (pkName != null) {
 #>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.<#= pkName #> }) |
-            @Html.ActionLink("Details", "Details", new { id=item.<#= pkName #> }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.<#= pkName #> })
+						<a href="@Url.Action("Edit", new { id=item.<#= pkName #> })"><i class="icon-pencil"></i> Edit</a> |
+						<a href="@Url.Action("Details", new { id=item.<#= pkName #> })"><i class="icon-th-list"></i> Details</a> |
+						<a href="@Url.Action("Delete", new { id=item.<#= pkName #> })"><i class="icon-trash"></i> Delete</a>
         </td>
 <#
 } else {
 #>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+						<a href="@Url.Action("Edit", new { /* id=item.PrimaryKey */ })"><i class="icon-pencil"></i> Edit</a> |
+						<a href="@Url.Action("Details", new { /* id=item.PrimaryKey */ })"><i class="icon-th-list"></i> Details</a> |
+						<a href="@Url.Action("Delete", new { /* id=item.PrimaryKey */ })"><i class="icon-trash"></i> Delete</a>
         </td>
 <#
 }
