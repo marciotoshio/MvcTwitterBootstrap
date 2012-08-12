@@ -12,6 +12,5 @@ namespace CleanMvcTwitterBootstrap.Controllers
         {
             return View();
         }
-
     }
 }
